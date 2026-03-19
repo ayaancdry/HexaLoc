@@ -49,12 +49,12 @@ flowchart TD
     D --> E["Layer 1: BasicBlock ×2\n32→64, stride=1 + CBAM\n[B, 64, 128, 128]"]
     E --> F["Layer 2: BasicBlock ×2\n64→128, stride=2 + CBAM\n[B, 128, 64, 64]"]
     E --> |skip| F
-    F --> G["Layer 3: BasicBlock ×2\n128→256, stride=2 + CBAM [B, 256, 32, 32]"]
-    G --> H["Layer 4: BasicBlock ×2\n256→512, stride=2 + CBAM [B, 512, 16, 16]"]
+    F --> G["Layer 3: BasicBlock ×2\n128→256, stride=2 + CBAM\n[B, 256, 32, 32]"]
+    G --> H["Layer 4: BasicBlock ×2\n256→512, stride=2 + CBAM\n[B, 512, 16, 16]"]
 
-    F --> SPP2["SPP2 pool_sizes=[1,2] [B, 640]"]
-    G --> SPP3["SPP3 pool_sizes=[1,2] [B, 1280]"]
-    H --> SPP4["SPP4 pool_sizes=[1,2] [B, 2560]"]
+    F --> SPP2["SPP2 pool_sizes=[1,2]\n[B, 640]"]
+    G --> SPP3["SPP3 pool_sizes=[1,2]\n[B, 1280]"]
+    H --> SPP4["SPP4 pool_sizes=[1,2]\n[B, 2560]"]
 
     SPP2 --> CA["MultiScaleCrossAttention\nproject → 8-head self-attn → project back\n[B, 3, 256] sequence"]
     SPP3 --> CA
@@ -374,7 +374,7 @@ On smaller GPUs, reduce `batch_size` or `grid_size` accordingly. Setting `max_po
 
 ## Acknowledgements
 
-- Pose utility functions and NCLT data pipeline adapted from [SGLoc](https://github.com/IRMVLab/SGLoc).
+- Pose utility functions and NCLT data pipeline adapted from [SGLoc](https://github.com/liw95/SGLoc) (Wen et al., CVPR 2023).
 - AtLoc loss formulation from [AtLoc](https://github.com/BingCS/AtLoc) (Wang et al., AAAI 2020).
 - CBAM from [CBAM: Convolutional Block Attention Module](https://github.com/Jongchan/attention-module) (Woo et al., ECCV 2018).
-- [NCLT Dataset](http://robots.engin.umich.edu/nclt/) — Carlevaris-Bianco et al., IJRR 2016.
+- [NCLT Dataset](https://robots.engin.umich.edu/nclt/) — Carlevaris-Bianco et al., IJRR 2016.
