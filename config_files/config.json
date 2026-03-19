@@ -1,0 +1,63 @@
+{
+  "data": {
+    "dataset_type": "nclt",
+    "nclt_root": "/home/ayaan/NCLT2",
+    "train_sequences": [
+      "2012-02-18",
+      "2012-02-02",
+      "2012-05-11",
+      "2012-01-22"
+    ],
+    "val_sequences": [
+      "2012-03-31"
+    ],
+    "bounds_zyx": [
+      -11,
+      1,
+      -55,
+      60,
+      -40,
+      40
+    ],
+    "num_planes": 10,
+    "grid_size": 512,
+    "max_points_per_cloud": 30000,
+    "kitti_root": "/DATA/common/kitti/dataset/sequences",
+    "load_labels": false
+  },
+  "model": {
+    "num_planes": 10,
+    "grid_size": 512,
+    "feature_dim": 1024,
+    "hidden_dim": 1024,
+    "block_type": "basic",
+    "dropout_rate": 0.1,
+    "num_layers": 4,
+    "use_cbam": true,
+    "use_cross_attention": true,
+    "cross_attn_dim": 256,
+    "cross_attn_heads": 8
+  },
+  "training": {
+    "num_epochs": 100,
+    "batch_size": 24,
+    "learning_rate": 0.00025,
+    "weight_decay": 1e-6,
+    "grad_clip": 10.0,
+    "num_workers": 6,
+    "use_augmentation": false,
+    "log_interval": 1000,
+    "output_dir": "./outputs",
+    "resume_from": "",
+    "early_stopping": 10,
+    "lr_decay_factor": 0.99,
+    "lr_step_size": 1,
+    "lr_patience": 5,
+    "force_config_lr": false,
+    "learn_beta": true,
+    "atloc_sax": 0.0,
+    "atloc_saq": -3.0,
+    "loss_type": "l1"
+  },
+  "description": "Configuration for 7DOF pose prediction on NCLT dataset using point cloud transformation loss"
+}
