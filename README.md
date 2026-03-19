@@ -141,8 +141,8 @@ flowchart TD
 **Python 3.9+** is recommended.
 
 ```bash
-git clone https://github.com/yourusername/plane-locnet.git
-cd plane-locnet
+git clone https://github.com/yourusername/plane-locnet.git](https://github.com/ayaancdry/HexaLoc.git
+cd HexaLoc
 pip install -r requirements.txt
 ```
 
